@@ -1,27 +1,53 @@
-body{
-  background:#1e1e1e;
-  color:white;
-  font-family:Arial;
+*{
+  box-sizing:border-box;
 }
 
+body{
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+  font-family:Segoe UI, Arial, sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20px;
+}
+
+/* APP */
 .app{
   display:flex;
-  gap:20px;
+  gap:24px;
+  background:#0f172a;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
+/* CALENDÁRIO */
 .calendar{
-  background:white;
-  color:black;
-  width:260px;
-  border-radius:6px;
+  background:#f8fafc;
+  color:#0f172a;
+  width:280px;
+  border-radius:12px;
+  overflow:hidden;
 }
 
 .month-bar{
-  background:#2563eb;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
   color:white;
   display:flex;
   justify-content:space-between;
-  padding:6px;
+  align-items:center;
+  padding:10px;
+}
+
+.month-bar button{
+  background:rgba(255,255,255,0.2);
+  border:none;
+  color:white;
+  padding:4px 10px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
 .weekdays,.days{
@@ -30,26 +56,47 @@ body{
   text-align:center;
 }
 
+.weekdays span{
+  padding:6px 0;
+  font-weight:bold;
+}
+
 .days button{
   border:none;
-  padding:4px;
+  padding:6px;
   cursor:pointer;
+  transition:.2s;
+  font-size: 18px;
+}
+
+.days button:hover{
+  background:#e5e7eb;
 }
 
 .days button.active{
-  background:#2b6cb0;
+  background:#2563eb;
   color:white;
 }
 
 .days button.confirmed1{background:#1e40af;color:white;}
 .days button.confirmed2{background:#2563eb;color:white;}
-.days button.confirmed3{background:#3bd1f6;color:black;}
-.days button.confirmed4{background:#0967a5;color:white;}
+.days button.confirmed3{background:#38bdf8;color:black;}
+.days button.confirmed4{background:#0ea5e9;color:white;}
 
+/* FORM */
 .form{
-  width:280px;
-  background:#2a2a2a;
-  padding:10px;
+  width:300px;
+  background:#020617;
+  padding:16px;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+label{
+  font-size:15px;
+  color:#cbd5f5;
 }
 
 .custom-select{
@@ -58,12 +105,19 @@ body{
 
 .custom-select input{
   width:100%;
-  padding:5px;
-  background:#111;
+  padding:8px;
+  border-radius:8px;
+  background:#0f172a;
   color:white;
-  border:1px solid #555;
+  border:1px solid #334155;
 }
 
+.custom-select input:focus{
+  outline:none;
+  border-color:#2563eb;
+}
+
+/* AUTOCOMPLETE */
 .options{
   position:absolute;
   top:100%;
@@ -75,10 +129,12 @@ body{
   overflow:auto;
   display:none;
   z-index:10;
+  border-radius:8px;
+  margin-top:4px;
 }
 
 .options div{
-  padding:6px;
+  padding:8px;
   cursor:pointer;
 }
 
@@ -86,10 +142,62 @@ body{
   background:#e5e7eb;
 }
 
-.table{
+/* BOTÕES */
+.form button{
   margin-top:6px;
-  border:1px solid #555;
+  padding:8px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:white;
+  transition:.2s;
+  font-size: 15px;
+}
+
+.form button:hover{
+  transform:scale(1.02);
+  filter:brightness(1.1);
+}
+
+/* TABELAS */
+#tabelas{
+  margin-top:20px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.table{
+  background:#020617;
+  border:1px solid #334155;
+  border-radius:12px;
+  padding:10px;
+  height: 25%;
+  width:25%;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.table pre{
+  margin:0;
+  white-space:pre-wrap;
+  word-wrap:break-word;
+  font-size:15px;
+}
+
+.table button{
+  margin-top:8px;
+  width:100%;
+  border:none;
+  border-radius:8px;
   padding:6px;
-  white-space:pre-line;
-  font-size:13px;
+  cursor:pointer;
+  background:#2563eb;
+  color:white;
+}
+
+.table button:hover{
+  background:#1e40af;
 }

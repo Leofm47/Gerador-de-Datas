@@ -202,11 +202,9 @@ function gerarTexto(){
   for(let chave in grupos){
     const grupo = grupos[chave];
     const ref = grupo[0];
-    const datas = grupo.map(d=>`${d.dia}/${d.mes}`).join(", ");
+    const datas = grupo.map(d=>`${d.dia} de ${meses[d.mes - 1]}`).join(", ");
 
-    const div = document.createElement("div");
-    div.className = "table";
-    div.innerText =
+    const texto =
 `────────────────────────────
 📅 Datas: ${datas}
 🛠 Serviço: ${ref.servico}
@@ -217,6 +215,30 @@ function gerarTexto(){
 📍 Local: SKA
 ────────────────────────────`;
 
-    container.appendChild(div);
+    const wrapper = document.createElement("div");
+    wrapper.className = "table";
+
+    const pre = document.createElement("pre");
+    pre.textContent = texto;
+
+    const btn = document.createElement("button");
+    btn.textContent = "📋 Copiar";
+    btn.onclick = () => {
+      navigator.clipboard.writeText(texto);
+      btn.textContent = "✅ Copiado!";
+      setTimeout(()=>btn.textContent="📋 Copiar",1500);
+    };
+
+    wrapper.appendChild(pre);
+    wrapper.appendChild(btn);
+    container.appendChild(wrapper);
   }
+}
+
+function limparCampos(){
+  produtoInput.value = "";
+  servicoInput.value = "";
+  moduloInput.value = "";
+  periodoInput.value = "";
+  tecnicoInput.value = "";
 }
