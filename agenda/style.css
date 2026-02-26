@@ -1,0 +1,52 @@
+body{
+  font-family:Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+  padding:20px;
+}
+
+.controls{
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+table{
+  border-collapse:collapse;
+  margin-bottom:30px;
+  background:#020617;
+}
+
+caption{
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+th,td{
+  border:1px solid #334155;
+  padding:8px;
+  min-width:120px;
+  text-align:center;
+}
+
+td.vazio{
+  background:#1e293b;
+}
+
+select.celula{
+  width:100%;
+  background:transparent;
+  color:white;
+  border:none;
+  font-weight:bold;
+}
+
+select.celula option{
+  color:black;
+}
+
+td small{
+  font-size:11px;
+  color:#94a3b8;
+}
