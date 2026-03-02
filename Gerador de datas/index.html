@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Agenda</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header></header>
+
+<div class="app">
+  <a href="/agenda/index.html">Tabela</a>
+
+  <div class="calendar">
+    <div class="month-bar">
+      <button onclick="mudarMes(-1)">◀</button>
+      <span id="mesAno"></span>
+      <button onclick="mudarMes(1)">▶</button>
+    </div>
+
+    <div class="weekdays">
+      <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
+    </div>
+
+    <div class="days" id="days"></div>
+  </div>
+
+  <div class="form">
+
+    <label>Produto</label>
+    <div class="custom-select">
+      <input id="produto" autocomplete="off">
+      <div class="options" id="opcoesProduto"></div>
+    </div>
+
+    <label>Serviço</label>
+    <div class="custom-select">
+      <input id="servico" autocomplete="off">
+      <div class="options" id="opcoesServico"></div>
+    </div>
+
+    <label>Módulo</label>
+    <div class="custom-select">
+      <input id="modulo" autocomplete="off">
+      <div class="options" id="opcoesModulo"></div>
+    </div>
+
+    <label>Período</label>
+    <div class="custom-select">
+      <input id="periodo" autocomplete="off">
+      <div class="options" id="opcoesPeriodo"></div>
+    </div>
+
+    <label>Técnico</label>
+    <div class="custom-select">
+      <input id="tecnico" autocomplete="off">
+      <div class="options" id="opcoesTecnico"></div>
+    </div>
+
+    <button onclick="gerar()">Gerar</button>
+    <button onclick="limparCampos()">Limpar campos</button>
+  </div>
+</div>
+
+<div id="tabelas"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
