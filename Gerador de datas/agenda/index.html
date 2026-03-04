@@ -7,9 +7,16 @@
 </head>
 <body>
 
-  <a href="../index.html">calendário</a>
+<a href="../index.html">calendário</a>
 
 <div class="controls">
+  <select id="produto">
+    <option value="">Selecione o produto</option>
+    <option value="SW">SolidWorks</option>
+    <option value="Hexagon">Hexagon</option>
+    <option value="Lantek">Lantek</option>
+  </select>
+
   <input type="date" id="dataInicio">
   <button type="button" onclick="gerarTabela()">Gerar semana</button>
 </div>

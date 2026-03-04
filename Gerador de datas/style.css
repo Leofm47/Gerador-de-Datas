@@ -175,7 +175,7 @@ label{
   border:1px solid #334155;
   border-radius:12px;
   padding:10px;
-  height: 230px;
+  height: 100%;
   width:320px;
   box-shadow:0 0 10px rgba(0,0,0,0.3);
 }
