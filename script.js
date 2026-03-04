@@ -200,8 +200,14 @@ function gerarTexto(){
   });
 
   for(let chave in grupos){
+    
     const grupo = grupos[chave];
     const ref = grupo[0];
+    grupo.sort((a, b) => {
+      if (a.ano !== b.ano) return a.ano - b.ano;
+      if (a.mes !== b.mes) return a.mes - b.mes;
+      return a.dia - b.dia;
+    });
     const datas = grupo.map(d=>`${d.dia} de ${meses[d.mes - 1]}`).join(", ");
 
     const texto =
@@ -212,7 +218,7 @@ function gerarTexto(){
 💻 Módulo: ${ref.modulo}
 ⏰ Horário: ${ref.horario}
 🕒 Período: ${ref.periodoTexto}
-📍 Local: SKA
+📍 Local: 
 ────────────────────────────`;
 
     const wrapper = document.createElement("div");

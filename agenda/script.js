@@ -4,9 +4,43 @@
   const produtos = {
     "SW": [
       "Implantação de PDM",
-      "Treinamento de Usuários",
-      "Treinamento de Administrador",
-      "Habilitação"
+      "Consultoria",
+      "Habilitação em DriveWorks Pro Nivel I",
+      "Habilitação em DriveWorks Pro Nivel II",
+      "Habilitação em DriveWorks Solo",
+      "Habilitação em DriveWorks Xpress",
+      "Habilitação em Power Surfacing",
+      "Habilitação em Power Surfacing RE",
+      "Habilitação em SKA CONNECTOR",
+      "Habilitação em SOLIDWORKS Chapas Metálicas e Soldagens",
+      "Habilitação em SOLIDWORKS Customizável",
+      "Habilitação em SOLIDWORKS Flow Simulation",
+      "Habilitação em SOLIDWORKS Flow Simulation Eletronic Cooling",
+      "Habilitação em SOLIDWORKS Flow Simulation HVAC",
+      "Habilitação em SOLIDWORKS Inspection",
+      "Habilitação em SOLIDWORKS MBD",
+      "Habilitação em SOLIDWORKS Motion",
+      "Habilitação em SOLIDWORKS Nível I",
+      "Habilitação em SOLIDWORKS Nível II",
+      "Habilitação em SOLIDWORKS Nível III",
+      "Habilitação em SOLIDWORKS Plastics Premium",
+      "Habilitação em SOLIDWORKS Plastics Professional",
+      "Habilitação em SOLIDWORKS Plastics Standard",
+      "Habilitação em SOLIDWORKS Routing Electrical",
+      "Habilitação em SOLIDWORKS Routing Piping and Tubing",
+      "Habilitação em SOLIDWORKS Simulation",
+      "Habilitação em SOLIDWORKS Simulation Premium",
+      "Habilitação em SOLIDWORKS Simulation Professional",
+      "Habilitação em SOLIDWORKS Visualize Professional",
+      "Habilitação em SOLIDWORKS Visualize Standard",
+      "Habilitação SOLIDWORKS CAM Professional Milling",
+      "Habilitação SOLIDWORKS CAM Professional Turning",
+      "Habilitação SOLIDWORKS CAM STANDARD",
+      "Habilitação SOLIDWORKS Composer Essentials",
+      "Habilitação SOLIDWORKS PDM PROFESSIONAL - Administração",
+      "Habilitação SOLIDWORKS PDM PROFESSIONAL - Usuários",
+      "Habilitação SOLIDWORKS PDM STANDARD - Administração",
+      "Habilitação SOLIDWORKS PDM STANDARD - Usuários",
     ],
     "Hexagon": [
       "Pós-processador",
@@ -106,10 +140,10 @@
   function criarInput(produto){
     return `
       <div class="autocomplete-wrapper">
-        <input class="celula"
-          oninput="mostrarSugestoes(this, '${produto}'); mudarCorInput(this)"
+        <textarea class="celula" rows="1"
+          oninput="autoResize(this); mostrarSugestoes(this, '${produto}'); mudarCorInput(this)"
           onfocus="mostrarSugestoes(this, '${produto}')"
-          onblur="fecharSugestoes(this)">
+          onblur="fecharSugestoes(this)"></textarea>
         <div class="sugestoes"></div>
       </div>
     `;
@@ -182,6 +216,7 @@
 
       div.onclick = () => {
         input.value = serv;
+        autoResize(input);   // 🔥 isso evita corte
         lista.innerHTML = "";
         mudarCorInput(input);
       };
@@ -201,3 +236,7 @@
     td.className = "";
     td.style.background = cores[index % cores.length];
   }
+  function autoResize(textarea){
+  textarea.style.height = "auto";
+  textarea.style.height = textarea.scrollHeight + "px";
+}
