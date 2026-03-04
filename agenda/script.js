@@ -149,31 +149,35 @@
     `;
   }
   function mudarCorInput(input){
-    const td = input.closest("td");
-    const produto = document.getElementById("produto").value;
-    const lista = produtos[produto] || [];
+  const td = input.closest("td");
+  const produto = document.getElementById("produto").value;
+  const lista = produtos[produto] || [];
 
-    const index = lista.indexOf(input.value);
-
-    // Se estiver na lista
-    if(index !== -1){
-      td.className = "";
-      td.style.background = cores[index % cores.length];
-      return;
-    }
-
-    // Texto livre
-    if(input.value.trim() !== ""){
-      const corCustom = corPorTexto(input.value);
-      td.className = "";
-      td.style.background = corCustom;
-      return;
-    }
-
-    // Vazio
-    td.className = "vazio";
-    td.style.background = "";
+  // 🔥 controle da borda
+  if(input.value.trim() !== ""){
+    input.style.borderBottom = "none";
+  } else {
+    input.style.borderBottom = "1px solid #0f172a";
   }
+
+  const index = lista.indexOf(input.value);
+
+  if(index !== -1){
+    td.className = "";
+    td.style.background = cores[index % cores.length];
+    return;
+  }
+
+  if(input.value.trim() !== ""){
+    const corCustom = corPorTexto(input.value);
+    td.className = "";
+    td.style.background = corCustom;
+    return;
+  }
+
+  td.className = "vazio";
+  td.style.background = "";
+}
 
   function corPorTexto(texto){
     const coresCustom = [
