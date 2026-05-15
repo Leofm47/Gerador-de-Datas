@@ -1,13 +1,17 @@
 // ================= DADOS =================
 const produtosSKA = {
   "SolidWorks": {
-    servicos: ["Treinamento","Pré-OS em SOLIDWORKS","Consultoria"],
+    servicos: ["Treinamento","Pré-OS em SOLIDWORKS","Consultoria", "Atualização de Versão"],
     tecnicos: ["João", "Maria", "Carlos"]
   },
   "Ares": {
-    servicos: ["Treinamento em Ares","Pré-OS em Ares"],
-    tecnicos: ["Pedro", "Ana"]
+    servicos: ["Treinamento em Ares","Pré-OS em Ares", "Consultoria em Ares"],
+    tecnicos: ["Pedro Henrique Schneider Pereira", "Ana"]
+  },
+  "Edgecam": {
+    servicos: []
   }
+
 };
 
 const modulos = ["Presencial", "Remoto"];
@@ -203,29 +207,34 @@ function gerarTexto(){
     
     const grupo = grupos[chave];
     const ref = grupo[0];
+
     grupo.sort((a, b) => {
       if (a.ano !== b.ano) return a.ano - b.ano;
       if (a.mes !== b.mes) return a.mes - b.mes;
       return a.dia - b.dia;
     });
+
     const datas = grupo.map(d=>`${d.dia} de ${meses[d.mes - 1]}`).join(", ");
 
-    const texto =
-`────────────────────────────
-📅 Datas: ${datas}
-🛠 Serviço: ${ref.servico}
-👨‍🔧 Técnico: ${ref.tecnico}
-💻 Módulo: ${ref.modulo}
-⏰ Horário: ${ref.horario}
-🕒 Período: ${ref.periodoTexto}
-📍 Local: 
-────────────────────────────`;
+    // 🔹 texto para copiar (continua puro)
+    const texto = `Dias: ${datas}
+Serviço: ${ref.servico}
+Técnico: ${ref.tecnico}
+Módulo: ${ref.modulo}
+Horário: ${ref.horario}`;
 
     const wrapper = document.createElement("div");
     wrapper.className = "table";
 
-    const pre = document.createElement("pre");
-    pre.textContent = texto;
+    // 🔹 agora NÃO usa <pre>
+    const conteudo = document.createElement("div");
+    conteudo.innerHTML = `
+      <p><b>Dias:</b> ${datas}</p>
+      <p><b>Serviço:</b> ${ref.servico}</p>
+      <p><b>Técnico:</b> ${ref.tecnico}</p>
+      <p><b>Módulo:</b> ${ref.modulo}</p>
+      <p><b>Horário:</b> ${ref.horario}</p>
+    `;
 
     const btn = document.createElement("button");
     btn.textContent = "📋 Copiar";
@@ -235,7 +244,7 @@ function gerarTexto(){
       setTimeout(()=>btn.textContent="📋 Copiar",1500);
     };
 
-    wrapper.appendChild(pre);
+    wrapper.appendChild(conteudo);
     wrapper.appendChild(btn);
     container.appendChild(wrapper);
   }

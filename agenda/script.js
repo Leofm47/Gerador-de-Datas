@@ -1,18 +1,26 @@
   const diasSemana = ["DOM","SEG","TER","QUA","QUI","SEX","SÁB"];
 
   // CADASTRO DE PRODUTOS E SERVIÇOS
+  const tecnicos = {
+    "SW": [
+      
+    ]
+  }
+
+
+
   const produtos = {
     "SW": [
-      "Implantação de PDM",
       "Consultoria",
       "Habilitação em DriveWorks Pro Nivel I",
       "Habilitação em DriveWorks Pro Nivel II",
       "Habilitação em DriveWorks Solo",
       "Habilitação em DriveWorks Xpress",
-      "Habilitação em Power Surfacing",
-      "Habilitação em Power Surfacing RE",
-      "Habilitação em SKA CONNECTOR",
+      "Habilitação em SOLIDWORKS CAM Professional Milling",
+      "Habilitação em SOLIDWORKS CAM Professional Turning",
+      "Habilitação em SOLIDWORKS CAM STANDARD",
       "Habilitação em SOLIDWORKS Chapas Metálicas e Soldagens",
+      "Habilitação em SOLIDWORKS Composer Essentials",
       "Habilitação em SOLIDWORKS Customizável",
       "Habilitação em SOLIDWORKS Flow Simulation",
       "Habilitação em SOLIDWORKS Flow Simulation Eletronic Cooling",
@@ -23,6 +31,8 @@
       "Habilitação em SOLIDWORKS Nível I",
       "Habilitação em SOLIDWORKS Nível II",
       "Habilitação em SOLIDWORKS Nível III",
+      "Habilitação em SOLIDWORKS PDM - Administração",
+      "Habilitação em SOLIDWORKS PDM - Usuários",
       "Habilitação em SOLIDWORKS Plastics Premium",
       "Habilitação em SOLIDWORKS Plastics Professional",
       "Habilitação em SOLIDWORKS Plastics Standard",
@@ -33,21 +43,47 @@
       "Habilitação em SOLIDWORKS Simulation Professional",
       "Habilitação em SOLIDWORKS Visualize Professional",
       "Habilitação em SOLIDWORKS Visualize Standard",
-      "Habilitação SOLIDWORKS CAM Professional Milling",
-      "Habilitação SOLIDWORKS CAM Professional Turning",
-      "Habilitação SOLIDWORKS CAM STANDARD",
-      "Habilitação SOLIDWORKS Composer Essentials",
-      "Habilitação SOLIDWORKS PDM PROFESSIONAL - Administração",
-      "Habilitação SOLIDWORKS PDM PROFESSIONAL - Usuários",
-      "Habilitação SOLIDWORKS PDM STANDARD - Administração",
-      "Habilitação SOLIDWORKS PDM STANDARD - Usuários",
+      "Implantação de PDM"
     ],
-    "Hexagon": [
+    "Edgecam": [
       "Pós-processador",
       "Implantação",
       "Treinamento",
-      "Customização"
+      "Customização",
+      "Habilitação SOLIDWORKS CAM Professional Milling",
+      "Habilitação SOLIDWORKS CAM Professional Turning",
+      "Habilitação SOLIDWORKS CAM STANDARD",
+      "Habilitação Atualização EDGECAM Advanced Milling / Turning",
+      "Habilitação Atualização EDGECAM Standard Milling / Turning",
+      "Habilitação Atualização EDGECAM Ultimate Milling / Turning",
+      "Habilitação Customizável em EDGECAM",
+      "Habilitação EDGECAM 4 Axis Simultaneous",
+      "Habilitação EDGECAM 5 Axis Simultaneous",
+      "Habilitação EDGECAM 5 Axis Simultaneous -  Ultimate Module",
+      "Habilitação EDGECAM 5 Axis Simultaneous - Advanced Module",
+      "Habilitação EDGECAM Advanced Milling",
+      "Habilitação EDGECAM Básico",
+      "Habilitação EDGECAM Bundle Advanced Production",
+      "Habilitação EDGECAM Essential Milling",
+      "Habilitação EDGECAM Essential Turning",
+      "Habilitação EDGECAM Fresamento de 3 eixos simultâneos",
+      "Habilitação EDGECAM Fresamento Prismático 2 1/2 Eixos",
+      "Habilitação EDGECAM Inspection",
+      "Habilitação EDGECAM para Fresamento contínuo com 4 eixos simultâneos",
+      "Habilitação EDGECAM Probing",
+      "Habilitação EDGECAM Standard Milling",
+      "Habilitação EDGECAM Standard Turning (C & Y)",
+      "Habilitação EDGECAM Strategy Manager",
+      "Habilitação EDGECAM Torneamento Básico",
+      "Habilitação EDGECAM Torneamento Completo",
+      "Habilitação EDGECAM Ultimate Milling",
+      "Habilitação EDGECAM Ultimate Turning (B Axis)",
+      "Habilitação EDGECAM Wire EDM 5 Eixos",
+      "Habilitação Torneamento Advanced Turning (2 Torres)",
+      "Habilitação Torneamento Advanced Turning (Geral)",
+      "Habilitação Torneamento Advanced Turning (Sub Spindle)"
     ],
+
     "Lantek": [
       "Implantação",
       "Treinamento",

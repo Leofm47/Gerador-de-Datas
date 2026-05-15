@@ -27,7 +27,8 @@ body{
 .calendar{
   background:#f8fafc;
   color:#0f172a;
-  width:280px;
+  width:350px;
+  height: 400px;
   border-radius:12px;
   overflow:hidden;
 }
@@ -78,9 +79,9 @@ body{
   color:white;
 }
 
-.days button.confirmed1{background:#1e40af;color:white;}
-.days button.confirmed2{background:#2563eb;color:white;}
-.days button.confirmed3{background:#38bdf8;color:black;}
+.days button.confirmed1{background:#85da23;color:white;}
+.days button.confirmed2{background:#1872fa;color:white;}
+.days button.confirmed3{background:#f5f838;color:black;}
 .days button.confirmed4{background:#0ea5e9;color:white;}
 
 /* FORM */
@@ -171,13 +172,14 @@ label{
 }
 
 .table{
-  background:#020617;
+  background:#939394;
   border:1px solid #334155;
   border-radius:12px;
   padding:10px;
   height: 100%;
   width:320px;
   box-shadow:0 0 10px rgba(0,0,0,0.3);
+  color: #000000;
 }
 
 .table pre{
@@ -185,6 +187,7 @@ label{
   white-space:pre-wrap;
   word-wrap:break-word;
   font-size:15px;
+  font-weight: normal; 
 }
 
 .table button{
