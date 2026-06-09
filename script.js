@@ -171,9 +171,9 @@ function gerar(){
   let horario = "";
   const p = normalizar(periodoDigitado);
 
-  if(p.includes("manh")) horario = "08:00 às 12:00";
-  else if(p.includes("tard")) horario = "13:00 às 17:00";
-  else if(p.includes("integ")) horario = "08:00 às 17:00";
+  if(p.includes("manh")) horario = "08:00 as 12:00";
+  else if(p.includes("tard")) horario = "13:00 as 17:00";
+  else if(p.includes("integ")) horario = "08:00 as 17:00";
   else if(p.includes("noit")) horario = "";
 
   datasTemp.forEach(d=>{
