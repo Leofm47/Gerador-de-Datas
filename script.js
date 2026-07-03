@@ -2,7 +2,7 @@
 const produtosSKA = {
   "SolidWorks": {
     servicos: ["Treinamento","Pré-OS em SOLIDWORKS","Consultoria", "Atualização de Versão"],
-    tecnicos: ["João", "Maria", "Carlos"]
+    tecnicos: ["Augusto Chiesa de Mattos", "Bruno Moura Ferri", "Gabriel Bueno", "José Vitor Becker de Souza", "Nathan Rodrigues Kirsch", "Thiago Paes de Farias"]
   },
   "Ares": {
     servicos: ["Treinamento em Ares","Pré-OS em Ares", "Consultoria em Ares"],
