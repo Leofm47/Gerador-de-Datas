@@ -6,7 +6,7 @@ const produtosSKA = {
   },
   "Ares": {
     servicos: ["Treinamento em Ares","Pré-OS em Ares", "Consultoria em Ares"],
-    tecnicos: ["Pedro Henrique Schneider Pereira", "Ana"]
+    tecnicos: ["Pedro Henrique Schneider Pereira"]
   },
   "Edgecam": {
     servicos: []
@@ -195,6 +195,44 @@ function gerar(){
   gerarTexto();
 }
 
+function formatarDatas(grupo) {
+  const mes = meses[grupo[0].mes - 1];
+
+  const dias = grupo
+    .map(d => d.dia)
+    .sort((a, b) => a - b);
+
+  // detecta sequência
+  const sequencias = [];
+  let inicio = dias[0];
+  let anterior = dias[0];
+
+  for (let i = 1; i <= dias.length; i++) {
+    const atual = dias[i];
+
+    if (atual === anterior + 1) {
+      anterior = atual;
+      continue;
+    }
+
+    sequencias.push({ inicio, fim: anterior });
+    inicio = atual;
+    anterior = atual;
+  }
+
+  // monta texto final
+  const partes = sequencias.map(s => {
+    if (s.inicio === s.fim) return `${s.inicio}`;
+    return `${s.inicio} a ${s.fim}`;
+  });
+
+  if (partes.length === 1) {
+    return `${partes[0]} de ${mes}`;
+  }
+
+  return `${partes.slice(0, -1).join(", ")} e ${partes[partes.length - 1]} de ${mes}`;
+}
+
 function gerarTexto(){
   const container = document.getElementById("tabelas");
   container.innerHTML = "";
@@ -218,7 +256,7 @@ function gerarTexto(){
       return a.dia - b.dia;
     });
 
-    const datas = grupo.map(d=>`${d.dia} de ${meses[d.mes - 1]}`).join(", ");
+    const datas = formatarDatas(grupo);
 
     // 🔹 texto para copiar (continua puro)
     const texto = `Dias: ${datas}
