@@ -8,11 +8,11 @@ const produtosSKA = {
     servicos: ["Treinamento em Ares","Pré-OS em Ares", "Consultoria em Ares"],
     tecnicos: ["Pedro Henrique Schneider Pereira"]
   },
-  "Edgecam": {
-    servicos: []
-  },
-  "Lantek":{
-    servicos: ["Atualização de versão - Lantek"],
+ // "Edgecam": {
+ //   servicos: []
+//  },
+  "LANTEK":{
+    servicos: ["Atualização de versão - LANTEK"],
     tecnicos: ["Petterson Ducato", "Diego Gomes de Lima", "Fernando de Freitas Falk", "Gabriel Alves", "Arthur Volpato", "Leonides Milnitz Júnior", "Timoti Milan", "Alex James de Lima", "Pablo Fernandez", "Rodrigo Ramos de Sousa", "Mateus Barbosa"]
   }
 
