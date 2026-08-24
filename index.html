@@ -10,19 +10,14 @@
 <header></header>
 
 <div class="app">
- <!-- <a href="/agenda/index.html">Tabela</a> -->
-
- <a href="/calendario/index.html">TESTE</a>
+  <!-- <a href="/agenda/index.html">Tabela</a> -->
+  <!-- <a href="/calendario/index.html">TESTE</a> -->
 
   <div class="calendar">
     <div class="month-bar">
       <button onclick="mudarMes(-1)">◀</button>
       <span id="mesAno"></span>
       <button onclick="mudarMes(1)">▶</button>
-    </div>
-
-    <div class="weekdays">
-      <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
     </div>
 
     <div class="days" id="days"></div>
@@ -60,7 +55,14 @@
       <div class="options" id="opcoesTecnico"></div>
     </div>
 
+    <label>
+      <input type="checkbox" id="deslocamento">
+      Deslocamento
+    </label>
+    
+    
     <button onclick="gerar()">Gerar</button>
+    <button onclick="desfazerUltimaAcao()">↩️ Desfazer última ação</button>
     <button onclick="limparCampos()">Limpar campos</button>
   </div>
 </div>
