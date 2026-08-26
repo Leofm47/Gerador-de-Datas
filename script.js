@@ -17,7 +17,7 @@ const produtosSKA = {
   },
 
   "ALPHACAM": {
-    servico: ["Habilitação em ALPHACAM Essential","Habilitação em ALPHACAM Standard","Habilitação em ALPHACAM Advanced","Habilitação em ALPHACAM Ultimate","Habilitação em ALPHACAM Aspire","Habilitação em ALPHACAM Automation Manager"],
+    servicos: ["Habilitação em ALPHACAM Essential","Habilitação em ALPHACAM Standard","Habilitação em ALPHACAM Advanced","Habilitação em ALPHACAM Ultimate","Habilitação em ALPHACAM Aspire","Habilitação em ALPHACAM Automation Manager"],
     tecnicos: ["Bruno Rosa", "Erich Lehmann", "Felipe Dal Prá", "Guilherme Razera"]
   }
 
