@@ -14,6 +14,11 @@ const produtosSKA = {
   "LANTEK":{
     servicos: ["Atualização de versão - LANTEK"],
     tecnicos: ["Petterson Ducato", "Diego Gomes de Lima", "Fernando de Freitas Falk", "Gabriel Alves", "Arthur Volpato", "Leonides Milnitz Júnior", "Timoti Milan", "Alex James de Lima", "Pablo Fernandez", "Rodrigo Ramos de Sousa", "Mateus Barbosa"]
+  },
+
+  "ALPHACAM": {
+    servico: ["Habilitação em ALPHACAM Essential","Habilitação em ALPHACAM Standard","Habilitação em ALPHACAM Advanced","Habilitação em ALPHACAM Ultimate","Habilitação em ALPHACAM Aspire","Habilitação em ALPHACAM Automation Manager"],
+    tecnicos: ["Bruno Rosa", "Erich Lehmann", "Felipe Dal Prá", "Guilherme Razera"]
   }
 
 };
