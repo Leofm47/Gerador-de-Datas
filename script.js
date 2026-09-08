@@ -17,7 +17,7 @@ const produtosSKA = {
   },
 
   "ALPHACAM": {
-    servicos: ["Habilitação em ALPHACAM Essential","Habilitação em ALPHACAM Standard","Habilitação em ALPHACAM Advanced","Habilitação em ALPHACAM Ultimate","Habilitação em ALPHACAM Aspire","Habilitação em ALPHACAM Automation Manager"],
+    servico: ["Habilitação em ALPHACAM Essential","Habilitação em ALPHACAM Standard","Habilitação em ALPHACAM Advanced","Habilitação em ALPHACAM Ultimate","Habilitação em ALPHACAM Aspire","Habilitação em ALPHACAM Automation Manager"],
     tecnicos: ["Bruno Rosa", "Erich Lehmann", "Felipe Dal Prá", "Guilherme Razera"]
   }
 
@@ -167,123 +167,147 @@ function criarDiaCalendario(data){
 
 
   // =====================================================
-  // EVENTOS CONFIRMADOS
-  // =====================================================
+// EVENTOS CONFIRMADOS
+// =====================================================
 
-  const confirmados = datasConfirmadas.filter(x =>
-    x.dia === dia &&
-    x.mes === mes &&
-    x.ano === ano
-  );
-
-
-  // =====================================================
-  // UMA ATIVIDADE
-  // =====================================================
-
-  if(confirmados.length === 1){
-
-    const evento = confirmados[0];
+const confirmados = datasConfirmadas.filter(x =>
+  x.dia === dia &&
+  x.mes === mes &&
+  x.ano === ano
+);
 
 
-    if(evento.deslocamento){
+// =====================================================
+// FUNÇÃO PARA PEGAR A COR DO EVENTO
+// =====================================================
 
-      btn.classList.add("deslocamento");
+function corEvento(evento) {
 
-    }else{
+  if (evento.deslocamento) {
+    return "#363E4A";
+  }
 
-      btn.style.background =
-        corDoLote(evento.lote);
+  return corDoLote(evento.lote);
 
-      btn.style.color = "#fff";
+}
 
-    }
+
+// =====================================================
+// IDENTIFICAR MANHÃ / TARDE / INTEGRAL
+// =====================================================
+
+const eventoManha = confirmados.find(x => {
+
+  const periodo = normalizar(x.periodoTexto);
+
+  return periodo.includes("manh") ||
+         periodo.includes("integ");
+
+});
+
+
+const eventoTarde = confirmados.find(x => {
+
+  const periodo = normalizar(x.periodoTexto);
+
+  return periodo.includes("tard") ||
+         periodo.includes("integ");
+
+});
+
+
+// =====================================================
+// PINTURA DO DIA
+// =====================================================
+
+// Nenhum evento
+if (!confirmados.length) {
+
+  btn.style.background = "";
+
+}
+
+
+// =====================================================
+// SOMENTE MANHÃ
+// =====================================================
+
+else if (eventoManha && !eventoTarde) {
+
+  const cor = corEvento(eventoManha);
+
+  btn.style.background = `
+    linear-gradient(
+      to bottom,
+      ${cor} 0%,
+      ${cor} 50%,
+      transparent 50%,
+      transparent 100%
+    )
+  `;
+
+  btn.style.color = "#0f172a";
+
+}
+
+
+// =====================================================
+// SOMENTE TARDE
+// =====================================================
+
+else if (!eventoManha && eventoTarde) {
+
+  const cor = corEvento(eventoTarde);
+
+  btn.style.background = `
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 50%,
+      ${cor} 50%,
+      ${cor} 100%
+    )
+  `;
+
+  btn.style.color = "#0f172a";
+
+}
+
+
+// =====================================================
+// MANHÃ + TARDE
+// =====================================================
+
+else if (eventoManha && eventoTarde) {
+
+  const corManha = corEvento(eventoManha);
+  const corTarde = corEvento(eventoTarde);
+
+  // Se for o mesmo evento/cor, pinta inteiro
+  if (corManha === corTarde) {
+
+    btn.style.background = corManha;
 
   }
 
+  // Se forem eventos diferentes, divide o dia
+  else {
 
-  // =====================================================
-  // DUAS ATIVIDADES
-  // =====================================================
-
-  if(confirmados.length >= 2){
-
-    const deslocamento =
-      confirmados.find(x => x.deslocamento);
-
-    const servico =
-      confirmados.find(x => !x.deslocamento);
-
-
-    if(deslocamento && servico){
-
-      const periodoDeslocamento =
-        normalizar(deslocamento.periodoTexto);
-
-      const periodoServico =
-        normalizar(servico.periodoTexto);
-
-
-      const deslocamentoManha =
-        periodoDeslocamento.includes("manh");
-
-      const servicoManha =
-        periodoServico.includes("manh");
-
-
-      const corServico =
-        corDoLote(servico.lote);
-
-
-      // Deslocamento manhã / serviço tarde
-
-      if(
-        deslocamentoManha &&
-        !servicoManha
-      ){
-
-        btn.style.background =
-          `linear-gradient(
-            to bottom,
-            #363E4A 0%,
-            #363E4A 50%,
-            ${corServico} 50%,
-            ${corServico} 100%
-          )`;
-
-        btn.style.color = "#fff";
-
-      }
-
-
-      // Serviço manhã / deslocamento tarde
-
-      else if(
-        servicoManha &&
-        !deslocamentoManha
-      ){
-
-        btn.style.background =
-          `linear-gradient(
-            to bottom,
-            ${corServico} 0%,
-            ${corServico} 50%,
-            #363E4A 50%,
-            #363E4A 100%
-          )`;
-
-        btn.style.color = "#fff";
-
-      }
-
-    }
+    btn.style.background = `
+      linear-gradient(
+        to bottom,
+        ${corManha} 0%,
+        ${corManha} 50%,
+        ${corTarde} 50%,
+        ${corTarde} 100%
+      )
+    `;
 
   }
 
+  btn.style.color = "#fff";
 
-  // =====================================================
-  // SELEÇÃO TEMPORÁRIA
-  // =====================================================
+}
 
   const selecionado =
     datasTemp.some(x =>
